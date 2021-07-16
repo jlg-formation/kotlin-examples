@@ -1,17 +1,16 @@
+import game.Player
 import game.generateNumberToGuess
 import game.guess
 
 /*
   This is the main program
  */
-fun main(args: Array<String>) {
-    println("Hello what is your name?")
-    val answer = readLine()
-    println("Welcome $answer!")
+fun main() {
+    val player = Player()
 
     println("Your challenge is to guess a number between 1 and 20")
-    var numberToGuess = generateNumberToGuess()
-    println("numberToGuess = ${numberToGuess}")
+    val numberToGuess = generateNumberToGuess()
+    println("numberToGuess = $numberToGuess")
 
     val maxTries = 5
 
@@ -20,10 +19,10 @@ fun main(args: Array<String>) {
         println("Try #$tryIndex")
         try {
             guess(numberToGuess)
-            println("Bravo! Good.")
+            println("Bravo ${player.name}! Good.")
             return
         } catch (e: Exception) {
-            println("Sorry. " + e.message)
+            println("Sorry ${player.name}. " + e.message)
             continue
         }
     }
