@@ -1,0 +1,5 @@
+# directory where IntelliJ IDEA builds.
+build
+
+# Gradle cache
+.gradle
