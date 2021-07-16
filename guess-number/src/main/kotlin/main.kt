@@ -13,12 +13,10 @@ fun main(args: Array<String>) {
     println("numberToGuess = ${numberToGuess}")
 
     val maxTries = 5
-    var tryIndex = 1
 
     // the game has a limited number of tries
-    while (tryIndex <= maxTries) {
+    for (tryIndex in 1..maxTries) {
         println("Try #$tryIndex")
-        tryIndex++
     }
     println("Too much tries. Game over.")
 }
