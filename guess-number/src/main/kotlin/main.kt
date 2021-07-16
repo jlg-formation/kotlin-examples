@@ -1,4 +1,5 @@
 import game.generateNumberToGuess
+import game.guess
 
 /*
   This is the main program
@@ -17,6 +18,16 @@ fun main(args: Array<String>) {
     // the game has a limited number of tries
     for (tryIndex in 1..maxTries) {
         println("Try #$tryIndex")
+        try {
+            guess(numberToGuess)
+            println("Bravo! Good.")
+            return
+        } catch (e: Exception) {
+            println("Sorry. " + e.message)
+            continue
+        }
     }
     println("Too much tries. Game over.")
+
+
 }
