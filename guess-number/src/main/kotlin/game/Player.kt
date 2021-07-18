@@ -1,11 +1,27 @@
 package game
 
 class Player {
-    var name: String? = null
+    var name: String = ""
 
-    init {
+    constructor(name: String? = null) {
+        if (name != null) {
+            this.name = name
+            return
+        }
         println("Hello what is your name?")
-        name = readLine()
-        println("Welcome $name!")
+        this.name = readLine() ?: throw Error("bad input")
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (!(other is Player)) {
+            return false
+        }
+        return this.name == other.name
+    }
+
+
+
+    override fun hashCode(): Int {
+        return name.hashCode()
     }
 }
