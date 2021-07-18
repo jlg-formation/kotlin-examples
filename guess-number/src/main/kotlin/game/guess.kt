@@ -8,12 +8,14 @@ fun generateNumberToGuess(): Int {
 
 fun guess(numberToGuess: Int) {
     println("Please enter a number: ")
-    val answer = readLine()
-    val nbr = answer?.toInt() ?: throw Error("not a number")
-    if (nbr > numberToGuess ) {
-        throw Exception("Too big.")
-    }
-    if (nbr < numberToGuess) {
-        throw Exception("Too small.")
+    try {
+        val answer = readLine() ?: throw Exception("answer not understood")
+        val nbr = answer.toInt()
+        when {
+            nbr > numberToGuess -> throw Exception("Too big.")
+            nbr < numberToGuess -> throw Exception("Too small.")
+        }
+    } catch (e: Exception) {
+        throw Exception("not a number")
     }
 }
