@@ -9,9 +9,9 @@ fun main() {
     val jlgPlayer = Player(name = "JLG")
     val player = Player()
     if (player == jlgPlayer) {
-        println("Hello my author ${player.name}!")
+        println("Hello my author ${player.getName()}!")
     } else {
-        println("Welcome ${player.name}!")
+        println("Welcome ${player.getName()}!")
     }
 
 
@@ -26,10 +26,10 @@ fun main() {
         println("Try #$tryIndex")
         try {
             guess(numberToGuess)
-            println("Bravo ${player.name}! Good.")
+            println("Bravo ${player.getName()}! Good.")
             return
         } catch (e: Exception) {
-            println("Sorry ${player.name}. " + e.message)
+            println("Sorry ${player.getName()}. " + e.message)
             continue
         }
     }
